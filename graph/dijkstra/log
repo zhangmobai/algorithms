@@ -1,0 +1,268 @@
+c++ -o test -Wall -g -std=c++11 *.cpp
+main.cpp:191:10: error: declaration of 'class T'
+ template<typename T>
+          ^
+main.cpp:37:10: error:  shadows template parm 'class T'
+ template<typename T>
+          ^
+main.cpp:192:53: error: 'std::ostream& Graph<T>::operator<<(std::ostream&, const Graph<T>&)' must take exactly one argument
+ ostream &operator<<(ostream &os, const Graph<T> &g) noexcept {
+                                                     ^
+main.cpp:223:1: error: expected '}' at end of input
+ }
+ ^
+main.cpp: In constructor 'Graph<T>::Graph()':
+main.cpp:40:16: error: class 'Graph<T>' does not have any field named 'weights'
+  Graph(void) : weights(16, h) { }
+                ^
+main.cpp:40:28: error: 'h' was not declared in this scope
+  Graph(void) : weights(16, h) { }
+                            ^
+main.cpp: In member function 'void Graph<T>::addVertex(const T&)':
+main.cpp:43:7: error: 'adj' was not declared in this scope
+   if (adj.find(x) != adj.end())
+       ^
+main.cpp:46:12: error: 'adj' was not declared in this scope
+   auto r = adj.insert(std::make_pair(x, vector<Vertex<T> *>()));
+            ^
+main.cpp: In member function 'bool Graph<T>::addEdge(const T&, const T&, int)':
+main.cpp:57:15: error: 'adj' was not declared in this scope
+   auto it_x = adj.find(x);
+               ^
+main.cpp:64:3: error: 'weights' was not declared in this scope
+   weights.insert(make_pair(make_pair(x,y), weight));
+   ^
+main.cpp: In member function 'int Graph<T>::getWeight(const T&, const T&) const':
+main.cpp:69:13: error: 'weights' was not declared in this scope
+   auto it = weights.find(make_pair(x, y));
+             ^
+main.cpp: In member function 'void Graph<T>::dijkstra(const T&)':
+main.cpp:168:13: error: 'adj' was not declared in this scope
+   auto it = adj.find(t);
+             ^
+main.cpp:174:63: error: a function-definition is not allowed here before '{' token
+   void push(Vertex<T> *v, int w = numeric_limits<int>::max()) {
+                                                               ^
+main.cpp:174:63: error: expected ';' before '{' token
+main.cpp:174:63: error: expected primary-expression before '{' token
+main.cpp:174:63: error: expected ';' before '{' token
+main.cpp:174:63: error: expected primary-expression before '{' token
+main.cpp:174:63: error: expected ')' before '{' token
+main.cpp:177:45: error: a function-definition is not allowed here before '{' token
+  void print_shortest_path(const T &s) const {
+                                             ^
+main.cpp:180:2: error: a template declaration cannot appear at block scope
+  template<typename U> friend ostream &operator<<(ostream &os, const Graph<U> &g) noexcept;
+  ^
+main.cpp:182:1: error: expected ';' before 'private'
+ private:
+ ^
+main.cpp:184:2: error: 'VertexMap' was not declared in this scope
+  VertexMap adj;
+  ^
+main.cpp:184:12: error: expected ';' before 'adj'
+  VertexMap adj;
+            ^
+main.cpp: In member function 'int Graph<T>::main(int, char**)':
+main.cpp:218:7: error: no match for 'operator<<' (operand types are 'std::ostream {aka std::basic_ostream<char>}' and 'Graph<std::basic_string<char> >')
+  cout << g;
+       ^
+main.cpp:218:7: note: candidates are:
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:108:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ostream_type& (*)(std::basic_ostream<_CharT, _Traits>::__ostream_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(__ostream_type& (*__pf)(__ostream_type&))
+       ^
+/usr/include/c++/4.8/ostream:108:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'std::basic_ostream<char>::__ostream_type& (*)(std::basic_ostream<char>::__ostream_type&) {aka std::basic_ostream<char>& (*)(std::basic_ostream<char>&)}'
+/usr/include/c++/4.8/ostream:117:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__ios_type& (*)(std::basic_ostream<_CharT, _Traits>::__ios_type&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>; std::basic_ostream<_CharT, _Traits>::__ios_type = std::basic_ios<char>]
+       operator<<(__ios_type& (*__pf)(__ios_type&))
+       ^
+/usr/include/c++/4.8/ostream:117:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'std::basic_ostream<char>::__ios_type& (*)(std::basic_ostream<char>::__ios_type&) {aka std::basic_ios<char>& (*)(std::basic_ios<char>&)}'
+/usr/include/c++/4.8/ostream:127:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(std::ios_base& (*)(std::ios_base&)) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(ios_base& (*__pf) (ios_base&))
+       ^
+/usr/include/c++/4.8/ostream:127:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'std::ios_base& (*)(std::ios_base&)'
+/usr/include/c++/4.8/ostream:166:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long __n)
+       ^
+/usr/include/c++/4.8/ostream:166:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'long int'
+/usr/include/c++/4.8/ostream:170:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long __n)
+       ^
+/usr/include/c++/4.8/ostream:170:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'long unsigned int'
+/usr/include/c++/4.8/ostream:174:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(bool) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(bool __n)
+       ^
+/usr/include/c++/4.8/ostream:174:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'bool'
+In file included from /usr/include/c++/4.8/ostream:612:0,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/ostream.tcc:91:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(short int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/include/c++/4.8/bits/ostream.tcc:91:5: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'short int'
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:181:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(short unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned short __n)
+       ^
+/usr/include/c++/4.8/ostream:181:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'short unsigned int'
+In file included from /usr/include/c++/4.8/ostream:612:0,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/ostream.tcc:105:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(int) [with _CharT = char; _Traits = std::char_traits<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/include/c++/4.8/bits/ostream.tcc:105:5: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'int'
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:192:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned int __n)
+       ^
+/usr/include/c++/4.8/ostream:192:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'unsigned int'
+/usr/include/c++/4.8/ostream:201:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long long __n)
+       ^
+/usr/include/c++/4.8/ostream:201:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'long long int'
+/usr/include/c++/4.8/ostream:205:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long long unsigned int) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(unsigned long long __n)
+       ^
+/usr/include/c++/4.8/ostream:205:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'long long unsigned int'
+/usr/include/c++/4.8/ostream:220:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(double __f)
+       ^
+/usr/include/c++/4.8/ostream:220:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'double'
+/usr/include/c++/4.8/ostream:224:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(float) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(float __f)
+       ^
+/usr/include/c++/4.8/ostream:224:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'float'
+/usr/include/c++/4.8/ostream:232:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(long double) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(long double __f)
+       ^
+/usr/include/c++/4.8/ostream:232:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'long double'
+/usr/include/c++/4.8/ostream:245:7: note: std::basic_ostream<_CharT, _Traits>::__ostream_type& std::basic_ostream<_CharT, _Traits>::operator<<(const void*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__ostream_type = std::basic_ostream<char>]
+       operator<<(const void* __p)
+       ^
+/usr/include/c++/4.8/ostream:245:7: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'const void*'
+In file included from /usr/include/c++/4.8/ostream:612:0,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/ostream.tcc:119:5: note: std::basic_ostream<_CharT, _Traits>& std::basic_ostream<_CharT, _Traits>::operator<<(std::basic_ostream<_CharT, _Traits>::__streambuf_type*) [with _CharT = char; _Traits = std::char_traits<char>; std::basic_ostream<_CharT, _Traits>::__streambuf_type = std::basic_streambuf<char>]
+     basic_ostream<_CharT, _Traits>::
+     ^
+/usr/include/c++/4.8/bits/ostream.tcc:119:5: note:   no known conversion for argument 1 from 'Graph<std::basic_string<char> >' to 'std::basic_ostream<char>::__streambuf_type* {aka std::basic_streambuf<char>*}'
+In file included from /usr/include/c++/4.8/string:52:0,
+                 from /usr/include/c++/4.8/stdexcept:39,
+                 from /usr/include/c++/4.8/array:38,
+                 from /usr/include/c++/4.8/tuple:39,
+                 from /usr/include/c++/4.8/functional:55,
+                 from main.cpp:1:
+/usr/include/c++/4.8/bits/basic_string.h:2753:5: note: template<class _CharT, class _Traits, class _Alloc> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const std::basic_string<_CharT, _Traits, _Alloc>&)
+     operator<<(basic_ostream<_CharT, _Traits>& __os,
+     ^
+/usr/include/c++/4.8/bits/basic_string.h:2753:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   'Graph<std::basic_string<char> >' is not derived from 'const std::basic_string<_CharT, _Traits, _Alloc>'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:471:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, _CharT)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, _CharT __c)
+     ^
+/usr/include/c++/4.8/ostream:471:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   deduced conflicting types for parameter '_CharT' ('char' and 'Graph<std::basic_string<char> >')
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:476:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, char)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, char __c)
+     ^
+/usr/include/c++/4.8/ostream:476:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   cannot convert 'g' (type 'Graph<std::basic_string<char> >') to type 'char'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:482:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, char)
+     operator<<(basic_ostream<char, _Traits>& __out, char __c)
+     ^
+/usr/include/c++/4.8/ostream:482:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   cannot convert 'g' (type 'Graph<std::basic_string<char> >') to type 'char'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:488:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, signed char)
+     operator<<(basic_ostream<char, _Traits>& __out, signed char __c)
+     ^
+/usr/include/c++/4.8/ostream:488:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   cannot convert 'g' (type 'Graph<std::basic_string<char> >') to type 'signed char'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:493:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, unsigned char)
+     operator<<(basic_ostream<char, _Traits>& __out, unsigned char __c)
+     ^
+/usr/include/c++/4.8/ostream:493:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   cannot convert 'g' (type 'Graph<std::basic_string<char> >') to type 'unsigned char'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:513:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const _CharT*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const _CharT* __s)
+     ^
+/usr/include/c++/4.8/ostream:513:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   mismatched types 'const _CharT*' and 'Graph<std::basic_string<char> >'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/ostream:612:0,
+                 from /usr/include/c++/4.8/iostream:39,
+                 from main.cpp:2:
+/usr/include/c++/4.8/bits/ostream.tcc:321:5: note: template<class _CharT, class _Traits> std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&, const char*)
+     operator<<(basic_ostream<_CharT, _Traits>& __out, const char* __s)
+     ^
+/usr/include/c++/4.8/bits/ostream.tcc:321:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   cannot convert 'g' (type 'Graph<std::basic_string<char> >') to type 'const char*'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:530:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const char* __s)
+     ^
+/usr/include/c++/4.8/ostream:530:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   cannot convert 'g' (type 'Graph<std::basic_string<char> >') to type 'const char*'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:543:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const signed char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const signed char* __s)
+     ^
+/usr/include/c++/4.8/ostream:543:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   cannot convert 'g' (type 'Graph<std::basic_string<char> >') to type 'const signed char*'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:548:5: note: template<class _Traits> std::basic_ostream<char, _Traits>& std::operator<<(std::basic_ostream<char, _Traits>&, const unsigned char*)
+     operator<<(basic_ostream<char, _Traits>& __out, const unsigned char* __s)
+     ^
+/usr/include/c++/4.8/ostream:548:5: note:   template argument deduction/substitution failed:
+main.cpp:218:10: note:   cannot convert 'g' (type 'Graph<std::basic_string<char> >') to type 'const unsigned char*'
+  cout << g;
+          ^
+In file included from /usr/include/c++/4.8/iostream:39:0,
+                 from main.cpp:2:
+/usr/include/c++/4.8/ostream:602:5: note: std::basic_ostream<_CharT, _Traits>& std::operator<<(std::basic_ostream<_CharT, _Traits>&&, const _Tp&) [with _CharT = char; _Traits = std::char_traits<char>; _Tp = Graph<std::basic_string<char> >] <near match>
+     operator<<(basic_ostream<_CharT, _Traits>&& __os, const _Tp& __x)
+     ^
+/usr/include/c++/4.8/ostream:602:5: note:   no known conversion for argument 1 from 'std::ostream {aka std::basic_ostream<char>}' to 'std::basic_ostream<char>&&'
+main.cpp: At global scope:
+main.cpp:223:1: error: expected unqualified-id at end of input
+ }
+ ^
+make: *** [test] Error 1
